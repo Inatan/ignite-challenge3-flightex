@@ -5,11 +5,12 @@ defmodule Flightex.Users.User do
   defstruct @keys
 
   def build(name, email, cpf) do
-    %__MODULE__{
-      id: UUID.uuid4(),
-      name: name,
-      email: email,
-      cpf: cpf
-    }
+    {:ok,
+     %__MODULE__{
+       id: UUID.uuid4(),
+       name: name,
+       email: email,
+       cpf: cpf
+     }}
   end
 end
