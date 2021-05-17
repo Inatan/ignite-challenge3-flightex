@@ -6,6 +6,8 @@ defmodule Flightex.Bookings.Report do
     booking_list = build_booking_list()
 
     File.write(filename, booking_list)
+
+    {:ok, "Report generated successfully"}
   end
 
   defp build_booking_list do
@@ -15,12 +17,11 @@ defmodule Flightex.Bookings.Report do
   end
 
   defp booking_string(%Booking{
-         id: id,
          data_completa: data_completa,
          cidade_origem: cidade_origem,
          cidade_destino: cidade_destino,
          id_usuario: id_usuario
        }) do
-    "#{id},#{data_completa},#{cidade_origem},#{cidade_destino},#{id_usuario}\n"
+    "#{id_usuario},#{cidade_origem},#{cidade_destino},#{data_completa}\n"
   end
 end
